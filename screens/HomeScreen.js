@@ -59,6 +59,13 @@ const HomeScreen = ({ navigation }) => {
         })
     }, [navigation])
 
+    const enterChat = (id, chatName) => {
+        navigation.navigate('Chat', {
+            id,
+            chatName
+        })
+    }
+
     return (
         <SafeAreaView>
             <ScrollView style={styles.container}>
@@ -67,6 +74,7 @@ const HomeScreen = ({ navigation }) => {
                         key={id}
                         id={id}
                         chatName={chatName}
+                        enterChat={enterChat}
                     />
                 ))}
             </ScrollView>
