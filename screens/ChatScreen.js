@@ -66,9 +66,8 @@ const ChatScreen = ({ navigation, route }) => {
         setInput('')
     }
 
-    useLayoutEffect(() => {
-        const unsubscribe = db
-            .collection('chats')
+    useLayoutEffect(() =>
+        db.collection('chats')
             .doc(route.params.id)
             .collection('messages')
             .orderBy('timestamp', 'desc')
@@ -78,11 +77,7 @@ const ChatScreen = ({ navigation, route }) => {
                         id: doc.id,
                         data: doc.data()
                     }))
-                )
-            )
-
-        return unsubscribe
-    }, [route])
+                )), [route])
 
 
     return (
@@ -216,7 +211,6 @@ const styles = StyleSheet.create({
         fontWeight: '500',
         marginLeft: 10,
     },
-    recievedMessageName: {},
     senderName: {
         left: 10,
         paddingRight: 10,

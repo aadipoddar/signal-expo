@@ -15,18 +15,15 @@ const HomeScreen = ({ navigation }) => {
         })
     }
 
-    useEffect(() => {
-        const unsubscribe = db.collection('chats').onSnapshot(snapshot => {
+    useEffect(() =>
+        db.collection('chats').onSnapshot(snapshot => {
             setChats(
-                snapshot.docs.map((doc) => ({
+                snapshot.docs.map(doc => ({
                     id: doc.id,
                     data: doc.data()
                 }))
             )
-        })
-
-        return unsubscribe
-    }, [])
+        }), [])
 
     useLayoutEffect(() => {
         navigation.setOptions({
