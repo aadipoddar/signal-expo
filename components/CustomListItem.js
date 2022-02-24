@@ -3,7 +3,7 @@ import { Avatar, ListItem } from 'react-native-elements'
 
 const CustomListItem = ({ id, chatName, enterChat }) => {
     return (
-        <ListItem>
+        <ListItem key={id} bottomDivider>
             <Avatar
                 rounded
                 source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png' }}
@@ -11,7 +11,7 @@ const CustomListItem = ({ id, chatName, enterChat }) => {
 
             <ListItem.Content>
                 <ListItem.Title style={{ fontWeight: 'bold' }}>
-                    Chat
+                    {chatName}
                 </ListItem.Title>
 
                 <ListItem.Subtitle numberOfLines={1} ellipsizeMode='tail'>
