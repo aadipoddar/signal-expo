@@ -16,7 +16,10 @@ const LoginScreen = ({ navigation }) => {
             }
         }), [])
 
-    const signIn = () => { }
+    const signIn = () => {
+        auth.signInWithEmailAndPassword(email, password)
+            .catch(error => alert(error.message))
+    }
 
     return (
         <KeyboardAvoidingView behavior='padding' style={styles.container}>
@@ -42,6 +45,7 @@ const LoginScreen = ({ navigation }) => {
                     type='password'
                     value={password}
                     onChangeText={setPassword}
+                    onSubmitEditing={signIn}
                 />
             </View>
 
