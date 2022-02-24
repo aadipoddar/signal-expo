@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { StyleSheet } from 'react-native'
 import { Avatar, ListItem } from 'react-native-elements'
 import { db } from '../firebase'
 
@@ -37,5 +36,3 @@ const CustomListItem = ({ id, chatName, enterChat }) => {
 }
 
 export default CustomListItem
-
-const styles = StyleSheet.create({})
